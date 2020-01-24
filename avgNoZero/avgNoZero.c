@@ -7,4 +7,18 @@
 * @return the average of the numbers in array, not counting zeroes,
 * or zero if size <= 0.
 */
-Provid
+
+double avgNoZero(double array[], int size){
+    if (size <= 0){return 0;}
+
+    double sum = 0;
+    int numberOfZeros = 0;
+
+    // get a sum of all the numbers in the array
+    for (int i=0; i < size; i++){
+        sum += array[i];
+        if (array[i] == 0){ numberOfZeros++; }
+    }
+
+    return sum / (size-numberOfZeros);
+}

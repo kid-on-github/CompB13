@@ -3,7 +3,7 @@
  * the inputted numbers.
  *
  * Compile with:
- * gcc -g -Wall HelloWorld.c -o HelloWorld
+ * gcc -Wall avgNoZeroMain.c avgNoZero.c -o avgNoZero
  *
  * @author:     Michael Peterson
  * Course:      Comp B13
@@ -12,15 +12,17 @@
 */
 
 #include <stdio.h>
+#include "avgNoZero.c"
 
 int main(int argc, char **argv){
     double array [1000];
     int arraySize = 0;
-    double input = 1;
+    double input;
 
-    while (scanf("%lf", &input) == 1)
-    {
-        printf("Input: %lf\n",input);
+    while (arraySize < 1000 && scanf("%lf", &input) == 1){
+        array[arraySize] = input;
         arraySize++;
     }
+
+    printf("Average = %lf\ncount = %i", avgNoZero(array,arraySize), arraySize);
 }
